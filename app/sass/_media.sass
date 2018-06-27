@@ -1,0 +1,651 @@
+@import "vars"
+
+@media only screen and (max-width : 1800px)
+	.advantages
+		&__capabilities
+			&-item
+				&--1, &--5
+					left: 0
+				&--2, &--6
+					right: 0
+
+		&__materials
+			&-photo
+				&--1, &--2
+					left: 0
+				&--4, &--5
+					right: 0
+
+		&__results
+			&::before
+				opacity: 0.5
+
+	/**/
+
+
+@media only screen and (max-width : 1400px)
+	.advantages
+		&__capabilities
+			flex-wrap: wrap
+			align-self: flex-start
+			&-block2
+				margin-left: 0
+				flex: 0 0 100%
+				max-width: 100%
+				position: static
+			&-list
+				margin-top: 30px
+				height: auto
+				display: flex
+				justify-content: space-between
+				flex-wrap: wrap
+			&-item
+				margin-bottom: 20px
+				position: static
+				transform: none
+				width: auto
+				flex: 0 0 310px
+				max-width: 310px
+			&-img
+				top: 30px
+				transform: none
+
+		&__materials
+			&-photo
+				&--1, &--2
+					left: -40px
+				&--4, &--5
+					right: -40px
+
+
+
+
+		/**/
+
+@media only screen and (max-width : 1199px)
+
+	.page
+		&__title
+			font-size: 26px
+	.section-title
+		font-size: 26px
+
+	/* ------------------------------------- 
+		header
+	 ------------------------------------- */
+	.header
+		position: static
+		&-col
+			&--2
+				flex: 0
+				position: static
+			&--3
+				margin-left: auto
+				margin-right: auto
+
+	/*----- navigation -----*/
+	.nav
+		transition: all .25s
+		position: absolute
+		top: -36px
+		right: -36px
+		height: 36px
+		width: 36px
+		z-index: 100
+		cursor: pointer
+
+		&__list
+			flex-direction: column
+			transition: all 0s
+			position: fixed
+			right: -9000px
+
+		&__toggle
+			transition: all .25s
+			content: ""
+			height: 3px
+			width: 30px
+			border-radius: 15px
+			background-color: #000
+			position: fixed
+			top: 49px
+			right: 15px
+			z-index: 10
+			&::before, &::after  
+				transition: all .25s
+				content: ""
+				position: absolute
+				left: 0
+				height: 3px
+				width: 30px
+				border-radius: 15px
+				background-color: #000
+			&::before
+				top: -8px
+			&::after 
+				top: 8px
+	
+	.nav-expanded 
+		transition: all .25s
+		text-align: center
+		line-height: 2em
+		height: 100%
+		width: 100%
+		border-radius: 0px
+		position: fixed
+		right: 0
+		top: 0
+		background-color: rgba(#fff, .95)
+		overflow-y: auto
+		overflow-x: hidden
+		.nav__list
+			position: relative
+			right: 0
+			padding-top: 100px
+			text-align: center
+			transition: all .1s
+			z-index: 2
+			
+		.nav__link
+			display: block
+			padding: 1rem 0
+			font-size: 1.25rem
+			text-decoration: none
+			transition: all .15s
+	
+		.nav__toggle
+			background-color: transparent
+			transition: all .25s
+			&:before 
+				transition: all .25s
+				top: 0
+				transform: rotate(45deg)
+			&:after 
+				transition: all .25s
+				top: -0px
+				transform: rotate(-45deg)
+
+
+	/* ------------------------------------- 
+		banner
+	 ------------------------------------- */
+	.banner
+		margin-top: 0
+		padding: 50px 0 140px
+		&-col
+			flex: 0 0 100%
+			max-width: 100%
+		&__text
+			padding-top: 0
+		&__btn-wrap
+			width: 270px
+			left: 50%
+			transform: translateX(-50%)
+			position: absolute
+			bottom: 50px
+			text-align: center
+		&__img
+			max-width: 400px
+			min-height: auto
+			margin: 30px auto 0
+
+
+	/* ------------------------------------- 
+		advantages
+	 ------------------------------------- */
+	.advantages
+		&__items
+			flex-wrap: wrap
+			&::before
+				background-size: cover
+		&__item
+			height: auto
+			padding: 50px 15px
+			flex: 0 0 100%
+			max-width: 100%
+			flex-wrap: wrap
+			flex-direction: row
+			justify-content: flex-start
+			border-bottom: 1px solid rgba(#fff, .6)
+			&-ic, &-title
+				margin-bottom: 0
+				margin-right: 25px
+			&-title
+				min-height: auto
+				font-size: 18px
+
+		&__capabilities
+			padding: 0
+			&-block1
+				flex: 0 0 100%
+				max-width: 100%
+			&-title
+				text-indent: -2px
+				padding-right: 35px
+			&-img
+				display: none
+			&-item
+				font-size: 12px
+
+		&__design
+			align-items: flex-start
+			flex-wrap: wrap
+			&-block1, &-block2
+				flex: 0 0 100%
+				max-width: 100%
+			&-block2
+				margin-left: 0
+			&-img
+				max-width: 400px
+				&::before
+					background: radial-gradient(circle 200px, rgba($accent-color-2, .4), transparent) 
+
+		&__materials
+			align-items: flex-start
+			flex-wrap: wrap
+			&-block1, &-block2
+				flex: 0 0 100%
+				max-width: 100%
+			&-block2
+				margin-left: 0
+				padding-bottom: 50px
+			&-img
+				display: none
+			&-photos
+				margin-top: 30px
+				display: flex
+				justify-content: center
+				align-items: center
+				flex-wrap: wrap
+			&-photo
+				display: flex
+				align-items: center
+				justify-content: center
+				overflow: hidden
+				width: 250px
+				height: 200px
+				position: relative
+				left: auto
+				right: auto
+				top: auto
+				bottom: auto
+				transform: none
+				&-count
+					width: 1em
+					height: 1em
+					bottom: 0 !important
+					left: 50% !important
+					top: 50% !important
+					right: auto !important
+					padding: 0 !important
+					margin: -.5em 0 0 -.5em
+					&:before
+						display: none
+
+		&__results
+			&::before
+				background-size: cover
+				display: none
+			&-title
+				position: static
+			&-block
+				padding-bottom: 50px
+			&-items
+				display: flex
+				flex-wrap: wrap
+				justify-content: center
+				align-items: center
+			&-item
+				margin: 30px 15px 0
+				position: static
+			&-img
+				margin-top: 30px
+				margin-left: auto
+				margin-right: auto
+				position: static
+				width: 100%
+				height: auto
+				max-width: 450px
+
+
+
+
+
+	.accordion
+		height: auto
+		flex-direction: column
+		&__item
+			width: 100%
+			height: 70px
+			border-right: none
+			border-bottom: 1px solid rgba(#fff, .01)
+			&.active
+				height: auto
+			&:last-child
+				border-bottom: none
+		&__heading
+			width: 100%
+			height: auto
+			writing-mode: horizontal-tb
+		&__body
+			padding: 15px
+			overflow: hidden
+		&-close
+			top: 37px
+			right: 15px
+			width: 30px
+			height: 30px
+			&::before
+				font-size: 16px
+				line-height: 26px
+
+
+
+
+	/* ------------------------------------- 
+		gallery
+ 	 ------------------------------------- */	
+	.gallery
+		&__col-5, &__col-7
+			flex: 0 0 100%
+			max-width: 100%
+		&__item
+			&--1
+				height: 600px
+			&--2, &--3, &--4, &--5
+				height: 400px
+
+
+
+	/* ------------------------------------- 
+		characteristics
+	 ------------------------------------- */
+	.characteristics
+		&__container
+			padding-left: 0
+			padding-right: 0
+
+
+
+
+
+	/* ------------------------------------- 
+		video-block
+ 	 ------------------------------------- */		
+	.video-block
+		padding: 25px 0 50px
+	.video
+		margin-top: 40px
+
+
+	/* ------------------------------------- 
+		footer
+ 	 ------------------------------------- */
+	.footer
+		&__container
+			padding-left: 0
+			padding-right: 0
+ 
+
+	/**/
+
+
+
+@media only screen and (max-width : 991px)
+
+	/* ------------------------------------- 
+		offer
+	 ------------------------------------- */
+	.offer
+		position: relative
+		padding: 50px 0 140px
+		&-col
+			flex: 0 0 100%
+			max-width: 100%
+			&--2
+				order: 1
+		&__img
+			max-width: 400px
+			min-height: auto
+			margin: 30px auto 0
+		&__purchase
+			display: flex
+			flex-wrap: wrap
+			justify-content: center
+			margin-top: 0
+			position: absolute
+			bottom: 50px
+			left: 15px
+			right: 15px
+			&-price
+				margin-right: 15px
+
+
+
+	/* ------------------------------------- 
+		characteristics
+	 ------------------------------------- */
+	.characteristics
+		background-image: url('../img/characteristics-grid.png')
+		&__container
+			padding-top: 50px
+		&__block
+			&--center
+				flex-wrap: wrap
+
+
+
+
+
+	/* ------------------------------------- 
+		footer
+ 	 ------------------------------------- */
+	.footer
+		&__link
+			font-size: 22px
+
+
+
+	/**/
+
+
+
+@media only screen and (max-width : 767px)
+
+	.contacts
+		display: flex
+		flex-direction: column
+		align-items: center
+		&__link
+			margin: 3px 0
+
+
+	/* ------------------------------------- 
+		offer
+	 ------------------------------------- */
+	.offer
+		padding-bottom: 155px
+		&__additional
+			display: flex
+			flex-direction: column
+			&-link
+				margin: 0
+		&__purchase
+			&-price
+				margin-top: 15px
+		&__btn-wrap
+			margin-top: 15px
+
+
+
+
+	/* ------------------------------------- 
+		advantages
+	 ------------------------------------- */
+	.advantages
+		&__items
+			&::after
+				background: rgba(#152b3e, .6)
+		&__item
+			&:active
+				background: rgba($accent-color-1, .5)
+			&-more
+				display: none
+
+		&__capabilities
+			&-list
+				display: block
+			&-item
+				max-width: 290px
+				margin-left: auto
+				margin-right: auto
+				background-size: 100%
+				align-self: center
+
+		&__design
+			&-txt
+				font-size: 14px
+
+		&__materials
+			&-list-item
+				font-size: 14px
+
+
+	/* ------------------------------------- 
+		gallery
+ 	 ------------------------------------- */	
+	.gallery
+		&__col
+			&-4
+				flex: 0 0 50%
+				max-width: 50%
+			&-8
+				flex: 0 0 100%
+				max-width: 100%
+		&__item
+			&--1
+				height: 400px
+			&--2, &--3, &--4, &--5
+				height: 300px
+		
+
+
+
+	/* ------------------------------------- 
+		characteristics
+	 ------------------------------------- */
+	.characteristics
+		padding: 50px 0
+		&__block
+			flex: 0 0 100%
+			max-width: 100%
+			&--right
+				margin-left: 0
+		&__item
+			margin-bottom: 1.5rem
+			&-title, &-descr
+				font-size: 14px
+
+
+
+
+	/* ------------------------------------- 
+		footer
+ 	 ------------------------------------- */
+	.footer
+		padding: 50px 0
+		&__container
+			padding-top: 0
+		&__col
+			flex: 0 0 100%
+			max-width: 100%
+		&__img
+			display: none
+		&__link
+			margin: 15px 0
+
+
+
+	/* ------------------------------------- 
+		popup
+	 ------------------------------------- */
+	.popup
+		&__container
+			padding: 30px 15px
+		&__form
+			&-row
+				flex-wrap: wrap
+				margin-bottom: 0
+			&-input
+				margin: 0 0 15px 0
+				flex: 0 0 100%
+				max-width: 100%
+				&-wrap
+					padding: 0
+			&-btn
+				margin-top: 15px
+
+	.mfp-close
+		right: 0
+
+	/**/
+
+
+
+@media only screen and (max-width : 575px)
+
+	/* ------------------------------------- 
+		header
+	 ------------------------------------- */
+	.header
+		&-line
+			justify-content: center
+			flex-direction: column
+		&-col
+			&--1
+				margin-bottom: 15px
+
+
+
+	/**/
+
+
+
+@media only screen and (max-width : 480px)
+
+	/* ------------------------------------- 
+		gallery
+ 	 ------------------------------------- */	
+	.gallery
+		&__col
+			&-4
+				flex: 0 0 100%
+				max-width: 100%
+
+	/**/
+
+
+
+@media only screen and (max-width : 320px)
+
+	/**/
+
+
+
+
+
+@media (min-width: 576px)
+  .wrapper
+    max-width: 540px
+
+@media (min-width: 768px)
+  .wrapper
+    max-width: 720px
+
+@media (min-width: 992px)
+  .wrapper
+    max-width: 960px
+
+@media (min-width: 1200px) 
+  .wrapper
+    max-width: 1200px

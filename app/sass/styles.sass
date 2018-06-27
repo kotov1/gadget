@@ -1,0 +1,1257 @@
+@import "vars"
+
+
+/* ------------------------------------- 
+	Libs import
+ ------------------------------------- */
+@import "libs"
+
+
+
+/*----- normalize -----*/
+*
+	-webkit-box-sizing: border-box
+	-moz-box-sizing: border-box
+	box-sizing: border-box
+	&:before, &:after
+		-webkit-box-sizing: border-box
+		-moz-box-sizing: border-box
+		box-sizing: border-box
+body
+	margin: 0
+
+a 
+	background-color: transparent
+
+b, strong
+	font-weight: bolder
+
+img
+	border-style: none
+
+button, input, select, textarea
+	font-family: inherit
+	font-size: 100%
+	line-height: 1.15
+	margin: 0
+
+button, select
+	text-transform: none
+
+button, [type="button"], [type="submit"]
+	-webkit-appearance: button
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner
+	border-style: none
+	padding: 0
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring
+	outline: 1px dotted ButtonText
+
+textarea
+	overflow: auto
+
+*::placeholder
+	color: #414042
+	opacity: 1
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color: #414042
+body input:required:valid,
+body textarea:required:valid
+	color: #414042
+
+::-webkit-file-upload-button
+	-webkit-appearance: button
+	font: inherit
+/*----- normalize end -----*/
+
+
+/* ------------------------------------- 
+	Common styles
+ ------------------------------------- */
+
+.page
+	max-width: 1920px
+	min-width: 320px
+	margin: 0 auto
+	position: relative
+	font: 1rem/1.15 $default-font
+	-webkit-text-size-adjust: 100%
+	overflow-x: hidden
+	&__title
+		margin: .5em 0
+		font-size: 34px
+		font-weight: 700
+		line-height: 1.5
+		text-transform: uppercase
+		letter-spacing: 0.04em
+		text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2)
+	&__subtitle
+		font-size: 16px
+		font-weight: 700
+		line-height: 1.5
+		text-transform: uppercase
+		letter-spacing: 0.04em
+		text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2)
+
+
+.section-title
+	font-size: 38px
+	line-height: 1.24
+	font-weight: 400
+	&--black
+		color: #313131
+	&--white
+		color: $text-color-2
+	&--semibold
+		font-weight: 500
+	&--bold
+		font-weight: 700
+
+
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+
+.nowrap
+	white-space: nowrap
+
+.text-center
+	text-align: center
+
+.btn
+	display: inline-block
+	width: 100%
+	max-width: 270px
+	padding: 0.407em 15px
+	border-radius: 30px
+	color: $text-color-2
+	font-size: 16px
+	font-weight: 700
+	line-height: 1.6875
+	text-align: center
+	border: none
+	outline: none
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2)
+	transition: all .2s
+	&:hover
+		cursor: pointer
+	&:active
+		transform: translate(1px, 1px)
+		transition: all .2s
+	&--pink
+		background-color: $accent-color-2
+		&:hover
+			background-color: darken($accent-color-2, 5%)
+			transition: all .2s
+	&--blue
+		background-color: $accent-color-1
+		&:hover
+			background-color: darken($accent-color-1, 5%)
+			transition: all .2s
+
+
+.checkbox 
+	margin-right: 7px
+	cursor: pointer
+	vertical-align: top
+	font-size: 0
+	display: inline-flex
+
+	.checkbox-hidden
+		display: none
+
+	.checkbox-wrap
+		display: inline-block
+		vertical-align: middle
+		width: 20px
+		height: 20px
+		box-sizing: border-box
+		flex: 0 0 20px
+
+	.checkbox-pseudo
+		display: block
+		width: 100%
+		height: 100%
+		border-radius: 50%
+		box-sizing: border-box
+		background-color: #fff
+		position: relative
+		transition: background .2s ease-out
+		&--pink
+			background-color: $accent-color-2
+		&--blue
+			background-color: $accent-color-1
+
+	.checkbox-check 
+		position: absolute
+		top: 4px
+		left: 4.5px
+		stroke: #fff
+		stroke-dasharray: 19px
+		stroke-dashoffset: 20px
+		transition: .2s ease-out
+
+.checkbox 
+	input[type=radio]
+		&:checked
+			+ .checkbox-wrap
+				.checkbox-pseudo
+					.checkbox-check
+						stroke-dashoffset: 34px
+
+
+.p-relative
+	position: relative		
+
+
+.animate
+	position: relative
+	top: 50px 	
+	opacity: 0
+	transition-property: top, opacity
+	transition-duration: 1s, 2s
+	transition-timing-function: linear, ease
+	&.animated
+		opacity: 1
+		top: 0
+		transition-property: top, opacity
+		transition-duration: 1s, 2s
+		transition-timing-function: linear, ease
+@media only screen and (max-width : 767px)
+	.animate
+		opacity: 1
+		top: 0
+		transition: none
+		&.animated
+			transition: none
+
+
+
+/*----- grid -----*/
+.wrapper
+	width: 100%
+	padding-right: 15px
+	padding-left: 15px
+	margin-right: auto
+	margin-left: auto
+
+.wrapper-fluid
+	width: 100%
+	padding-right: 15px
+	padding-left: 15px
+	margin-right: auto
+	margin-left: auto
+
+.line
+	display: flex
+	flex-wrap: wrap
+	margin-right: -15px
+	margin-left: -15px
+
+.no-paddings
+	margin-right: 0
+	margin-left: 0
+
+.no-paddings > .col,
+.no-paddings > [class*="col-"]
+	padding-right: 0
+	padding-left: 0
+
+.col
+	width: 100%
+	min-height: 1px
+	padding-right: 15px
+	padding-left: 15px
+
+
+/* ------------------------------------- 
+	header
+ ------------------------------------- */
+.header
+	padding: 38px 0
+	position: fixed
+	height: 100px
+	top: 0
+	left: 0
+	right: 0
+	background: #fff
+	z-index: 2
+	&-line
+		align-items: center
+	&-col
+		&--1, &--3
+			flex: 0 0 auto
+			width: auto
+			max-width: none
+		&--2
+			flex: 1 0 0
+			max-width: 100%
+
+
+/*----- navigation -----*/
+.nav
+	&__list
+		width: 100%
+		display: flex
+		flex-wrap: wrap
+		justify-content: center
+		margin: 0
+		padding-left: 0
+		list-style: none
+	&__link
+		display: inline-block
+		position: relative
+		margin: 0 15px
+		font-size: 14px
+		font-weight: 500
+		line-height: 1.5
+		letter-spacing: 1px
+		text-transform: capitalize
+		text-decoration: none
+		color: $text-color-1
+		overflow: hidden
+		&:hover
+			text-decoration: none
+			color: darken($text-color-1, 25%)
+			&::before, &::after
+				transform:  translateX(0)
+		&::before, &::after
+			content: ''
+			position: absolute
+			transition: transform .5s ease
+			width: 100%
+			height: 1px
+			background: $text-color-1
+		&::before
+			left: -1px
+			bottom: 0
+			transform:  translateX(-100%)
+		&::after
+			right: -1px
+			top: 0
+			transform:  translateX(100%)
+			
+
+
+/*----- contacts -----*/
+.contacts
+	&__link
+		display: inline-block
+		margin: 0 15px
+		font-size: 18px
+		font-weight: 700
+		text-decoration: none
+		color: $text-color-1
+		letter-spacing: .8px
+		transition: all .2s
+		&:first-child
+			margin-left: 0
+		&:last-child
+			margin-right: 0
+		&:hover
+			color: darken($text-color-1, 25%)
+			transition: all .2s
+
+
+/* ------------------------------------- 
+	banner
+ ------------------------------------- */
+.banner
+	position: relative
+	margin-top: 100px
+	padding: 30px 0
+	background-image: linear-gradient(135deg, $accent-color-1, $accent-color-2)
+	color: $text-color-2
+	z-index: 1
+	&::before
+		content: ''
+		display: block
+		width: 100%
+		height: 100%
+		position: absolute
+		left: 0
+		top: 0
+		background: url('../img/decor1.png') no-repeat 50% 50%
+		background-size: cover
+		z-index: -1
+	&-col
+		flex: 0 0 50%
+		max-width: 50%
+	&__text
+		padding-top: 88px
+	&__advantages
+		margin: 2.3em 0 0 0
+		padding-left: 17px
+		font-size: 16px
+		line-height: 1.5
+		font-weight: 400
+	&__btn-wrap
+		margin-top: 90px
+	&__img
+		min-height: 645px
+		display: flex
+		justify-content: center
+		align-items: center
+
+
+
+/* ------------------------------------- 
+	offer
+ ------------------------------------- */
+.offer
+	padding: 100px 0 85px
+	background-color: #dce7ed
+	&-col
+		flex: 0 0 50%
+		max-width: 50%
+		&--1
+			order: 1
+		&--2
+			display: flex
+			flex-direction: column
+			align-items: center
+
+	&__img
+		max-width: 375px
+		min-height: 500px
+		margin: 0 auto
+		display: flex
+		justify-content: center
+		align-items: center
+
+	&__item
+		width: 100%
+		&:not(:first-child)
+			display: none
+
+	&__additional
+		margin-top: 9px
+		&-link
+			margin: 0 10px
+			font-size: 12px
+			font-weight: 600
+			line-height: 2.5
+			color: $text-color-1
+			&:hover
+				text-decoration: none
+			&:first-child
+				margin-left: 0
+			&:last-child
+				margin-right: 0
+	&__text
+		padding-top: 13px
+	&__title
+		margin-top: 0
+	
+	&__advantages
+		margin: 0
+		padding-left: 17px
+		color: $text-color-1
+		font-size: 16px
+		font-weight: 500
+		line-height: 1.5
+
+	&__choose
+		margin-top: 30px
+		&-title
+			margin-bottom: 10px
+			color: $text-color-1
+			font-size: 12px
+			font-weight: 700
+			line-height: 2.5
+	
+	&__purchase
+		margin-top: 80px
+		display: flex
+		align-items: center
+		justify-content: space-between
+		&-price
+			font-weight: 700
+			line-height: 1.05
+		&-sum
+			margin-right: 5px
+			color: #313131
+			font-size: 26px
+		&-units
+			color: #313131
+			font-size: 26px
+
+	&__btn-wrap
+		flex: 0 0 270px
+		max-width: 270px
+
+
+
+/* ------------------------------------- 
+	advantages
+ ------------------------------------- */
+.advantages
+	position: relative
+	&__items
+		display: flex
+		background: #058aff url('../img/decor1.png') no-repeat 50% 50%
+		background-size: cover
+		position: relative
+		z-index: 1
+		&--open
+			display: flex
+		&::before
+			content: ''
+			display: block
+			width: 100%
+			height: 100%
+			position: absolute
+			left: 0
+			top: 0
+			background: url('../img/illustration1.png') no-repeat 50% 0
+			background-size: cover
+			z-index: -1
+		&::after
+			content: ''
+			display: block
+			width: 100%
+			height: 100%
+			position: absolute
+			left: 0
+			top: 0
+			background: rgba(#152b3e, .4)
+			z-index: -1
+	&__item
+		height: 873px
+		flex: 0 0 25%
+		max-width: 25%
+		display: flex
+		flex-direction: column
+		justify-content: flex-end
+		align-items: center
+		padding-bottom: 165px
+		border-right: 1px solid rgba(#fff, .6)
+		&:last-child
+			border-right: none
+		&:hover
+			cursor: pointer
+			.advantages__item-more
+				transform: scale(1)
+				position: static
+				transition: all .2s
+		&-ic
+			display: block
+			width: 50px
+			height: 50px
+			margin-bottom: 69px
+			position: relative
+			border: 2px solid $text-color-2
+			border-radius: 50%
+			text-align: center
+			&::before
+				content: '+'
+				display: inline-block
+				color: $text-color-2
+				font-size: 24px
+				font-weight: 600
+				line-height: 50px
+		&-title
+			min-height: 50px
+			margin-bottom: 37px
+			font-size: 20px
+			font-weight: 700
+			line-height: 1.2
+			text-align: center
+			color: #fff
+		&-more
+			transform: scale(0)
+			position: absolute
+			color: #ffffff
+			font-size: 13px
+			font-weight: 500
+			line-height: 1.85
+			border-bottom: 1px dashed $text-color-2
+			&:hover
+				border-bottom-color: transparent
+
+
+	&__capabilities
+		height: 100%
+		display: flex
+		align-items: center
+		padding: 0 80px
+		&-block1
+			flex: 0 0 360px
+			max-width: 360px
+		&-block2
+			height: 100%
+			flex: 1 0 0
+			max-width: 100%
+			margin-left: 60px
+			position: relative
+			z-index: 1
+		&-title
+			font-weight: 200
+			text-indent: -5px
+		&-attention
+			color: $text-color-2
+			font-size: 8px
+			font-weight: 700
+			line-height: 2
+			&-txt
+				margin: 0
+			&-list
+				margin-top: 0
+				padding-left: 0
+				list-style-position: inside
+
+		&-list
+			position: relative
+			height: 100%
+			margin: 0
+			padding-left: 0
+			list-style: none
+		&-item
+			width: 310px
+			height: 202px
+			display: flex
+			align-items: center
+			padding: 55px 50px 25px
+			background: url('../img/advantages/dec1.png') no-repeat 50% 50%
+			color: $text-color-2
+			font-size: 14px
+			font-weight: 700
+			line-height: 1.5
+			position: absolute
+			&--1
+				left: 200px
+				top: 40px
+			&--2
+				right: 200px
+				top: 40px
+			&--3
+				left: 0
+				top: 50%
+				transform: translateY(-50%)
+			&--4
+				right: 0
+				top: 50%
+				transform: translateY(-50%)
+			&--5
+				bottom: 40px
+				left: 200px
+			&--6
+				bottom: 40px
+				right: 200px	
+		&-img
+			width: 385px
+			position: absolute
+			left: 50%
+			top: 50%
+			transform: translate(-50%, -50%)
+			display: flex
+			align-items: center
+			justify-content: center
+			z-index: -1
+			&::before
+				content: ''
+				display: block
+				width: 100%
+				height: 100%
+				position: absolute
+				left: 0
+				top: 0
+				background: radial-gradient(circle 200px, rgba($text-color-2, .4), transparent) no-repeat 50% 50%
+				z-index: -1
+
+	&__design
+		height: 100%
+		display: flex
+		align-items: center
+		padding: 0 80px
+		&-block1
+			flex: 0 0 47%
+			max-width: 47%
+		&-block2
+			height: 100%
+			flex: 1 0 0
+			max-width: 100%
+			margin-left: 60px
+			display: flex
+			align-items: center
+			justify-content: center
+			z-index: 1
+		&-title
+			font-weight: 200
+		&-txt
+			font-size: 16px
+			font-weight: 700
+			line-height: 1.875
+			text-transform: uppercase
+			color: $text-color-2
+		&-img
+			position: relative
+			padding: 50px
+			z-index: 1
+			&::before
+				content: ''
+				display: block
+				width: 100%
+				height: 100%
+				position: absolute
+				left: 0
+				top: 0
+				background: radial-gradient(circle 300px, rgba($accent-color-2, .4), transparent) no-repeat 50% 50%
+				z-index: -1
+
+	&__materials
+		height: 100%
+		display: flex
+		align-items: center
+		padding: 0 80px
+		&-block1
+			flex: 0 0 32%
+			max-width: 32%
+		&-block2
+			height: 100%
+			flex: 1 0 0
+			max-width: 100%
+			margin-left: 60px
+			position: relative
+			z-index: 1
+		&-title
+			text-indent: -3px
+			font-weight: 200
+		&-list
+			margin: 0
+			padding-left: 0
+			list-style-position: inside
+			&-item
+				font-size: 16px
+				font-weight: 700
+				line-height: 1.5
+				text-transform: uppercase
+				color: $text-color-2
+		&-photos
+			margin: 0
+			padding-left: 0
+			list-style: none
+		&-photo
+			position: absolute
+			width: 202px
+			height: 175px
+			&-count
+				width: 100px
+				height: 88px
+				display: flex
+				align-items: center
+				justify-content: center
+				position: absolute
+				color: $text-color-2
+				font-size: 25px
+				font-weight: 700
+				line-height: 1
+				z-index: 0
+				&::before
+					content: ''
+					display: block
+					position: absolute
+					left: 0
+					top: 0
+					border: 50px solid transparent
+					border-top: none
+					border-bottom: 88px solid rgba(#fff, .2)
+					z-index: 0
+			&--1
+				bottom: 200px
+				left: 63px
+				.advantages__materials-photo-count
+					padding-right: 20px
+					top: 56px
+					right: -64px
+					&::before
+						transform: rotate(90deg)
+			&--2
+				top: 40%
+				transform: translateY(-50%)
+				left: 110px
+				.advantages__materials-photo-count
+					padding-top: 20px
+					bottom: 2px
+					right: -47px
+			&--3
+				top: 64px
+				left: 50%
+				transform: translateX(-50%)
+				.advantages__materials-photo-count
+					padding-bottom: 20px
+					bottom: -86px
+					left: 49px
+					&::before
+						transform: rotate(180deg)
+			&--4
+				top: 40%
+				transform: translateY(-50%)
+				right: 117px
+				.advantages__materials-photo-count
+					padding-top: 20px
+					bottom: 2px
+					left: -51px
+			&--5
+				bottom: 200px
+				right: 45px
+				.advantages__materials-photo-count
+					padding-left: 20px
+					top: 56px
+					left: -95px
+					&::before
+						transform: rotate(-90deg)
+		&-img
+			width: 385px
+			position: absolute
+			left: 50%
+			bottom: 33px
+			transform: translateX(-50%)
+			display: flex
+			align-items: center
+			justify-content: center
+			z-index: -1
+
+	&__results
+		height: 100%
+		padding: 0 80px
+		position: relative
+		&::before
+			content: ''
+			display: block
+			width: 100%
+			height: 100%
+			position: absolute
+			left: 0
+			top: 0
+			background: url('../img/advantages/advantages-results-bg.png') no-repeat 100% 0
+			z-index: 0
+		&-block
+			height: 100%
+			position: relative
+			z-index: 1
+		&-title
+			position: absolute
+			top: 314px
+			font-weight: 200
+		&-items
+			position: relative
+		&-item
+			position: absolute
+			width: 219px
+			height: 219px
+			border-radius: 50%
+			background: $text-color-2
+			overflow: hidden
+			display: flex
+			align-items: center
+			justify-content: center
+			&--1
+				top: 83px
+				left: -57px
+			&--2
+				top: 38px
+				left: 189px
+			&--3
+				left: 431px
+				top: 101px
+			&--4
+				top: 283px
+				left: 189px
+		&-img
+			width: 451px
+			height: 510px
+			display: flex
+			align-items: center
+			justify-content: center
+			position: absolute
+			bottom: 20px
+			left: 68px
+
+		
+			
+			
+
+
+.accordion
+	position: absolute
+	transform: scale(0)
+	display: flex
+	height: 873px
+	font-size: 16px
+	background-color: rgba(#000, .2)
+	transition: all 0.5s ease-in
+	&--open
+		position: static
+		transform: scale(1)
+		transition: all 0.5s ease-in
+
+	&__item
+		display: flex
+		position: relative
+		width: 70px
+		border-right: 1px solid rgba(#fff, .01)
+		transition: all 0.5s ease-in
+		&.active
+			width: 100%
+			.accordion__heading
+				visibility: hidden
+				opacity: 0
+				transition: all .2s
+			.accordion-close
+				visibility: visible
+				transform: scale(1)
+				transition: all .2s
+		&:not(.active)
+			.accordion__body
+				padding: 0
+				background-image: none
+				&::before
+					display: none
+				*
+					visibility: hidden
+		&:last-child
+			border-right: none
+
+	&__heading
+		position: absolute
+		font-size: 20px
+		font-weight: 700
+		line-height: 1.2
+		padding: 1em
+		color: #fff
+		height: 100%
+		writing-mode: vertical-lr
+		margin: 0
+		cursor: pointer
+		visibility: visible
+		opacity: 1
+		transition: all .2s
+		z-index: 1
+
+	&__body
+		width: 100%
+		background-image: url('../img/decor2.png')
+		background-repeat: no-repeat
+		background-position: 100% 0
+		*
+			visibility: visible
+			transition: visibility .1s
+		&.bg-color-1
+			background-color: $accent-color-1
+		&.bg-color-2
+			background-color: $accent-color-2
+			
+	&-close
+		display: block
+		visibility: hidden
+		transform: scale(0)
+		width: 53px
+		height: 53px
+		position: absolute
+		top: 30px
+		right: 50px
+		border: 2px solid $text-color-2
+		border-radius: 50%
+		text-align: center
+		z-index: 2
+		transition: all .2s
+		&::before
+			content: 'x'
+			display: inline-block
+			color: $text-color-2
+			font-size: 24px
+			font-weight: 700
+			line-height: 47px
+		&:hover
+			cursor: pointer
+		&:active
+			transform: translate(1px, 1px)
+
+
+
+
+/* ------------------------------------- 
+	gallery
+ ------------------------------------- */
+.gallery
+	padding-top: 100px
+	overflow: hidden
+	&__col
+		&-4
+			flex: 0 0 33.333333%
+			max-width: 33.333333%
+		&-5
+			flex: 0 0 41.666667%
+			max-width: 41.666667%
+		&-7
+			flex: 0 0 58.333333%
+			max-width: 58.333333%
+		&-8
+			flex: 0 0 66.666667%
+			max-width: 66.666667%
+	&__item
+		background-repeat: no-repeat
+		background-position: 50% 50%
+		background-size: cover
+		&--1
+			height: 858px
+		&--2, &--3
+			height: 430px
+		&--4, &--5,
+			height: 428px
+
+
+
+
+/* ------------------------------------- 
+	characteristics
+ ------------------------------------- */
+.characteristics
+	padding: 85px 0 100px
+	background-color: $accent-color-1 
+	background-repeat: no-repeat
+	background-image: url('../img/characteristics-grid.png'), url('../img/characteristics-img.png')
+	background-size: cover, 167px 796px
+	background-position: 0 0, 50% 35%
+	&-title
+		margin: 0
+		font-weight: 200
+	&-subtitle
+		color: $text-color-2
+		font-size: 12px
+		font-weight: 700
+		line-height: 2.5
+		text-transform: uppercase
+
+	&__container
+		padding: 350px 65px 0
+		display: flex
+		flex-wrap: wrap
+
+	&__block
+		&--left, &--right
+			flex: 0 0 300px
+			max-width: 300px
+		&--left
+			margin-right: auto
+		&--right
+			margin-left: auto
+		&--center
+			flex: 0 0 100%
+			max-width: 100%
+			display: flex
+			justify-content: space-between
+			.characteristics__item
+				flex: 0 0 300px
+				max-width: 300px
+
+	&__item
+		margin-bottom: 2.6rem
+		color: $text-color-2
+		&-title
+			font-size: 16px
+			font-weight: 700
+			line-height: 1.875
+			text-transform: uppercase
+		&-descr
+			font-size: 16px
+			font-weight: 500
+			line-height: 1.5
+
+
+
+
+/* ------------------------------------- 
+	video-block
+ ------------------------------------- */
+.video-block
+	padding: 57px 0 100px
+	background-color: #dce7ed
+.video
+	width: 100%
+	max-width: 831px
+	margin: 60px auto 0
+	position: relative
+	box-shadow: 0 0 12px rgba(#000, .1)
+	overflow: hidden
+	&--active
+		.videoPoster 
+			opacity: 0
+			height: 0
+			transition-delay: 0s, 500ms
+
+	.relation-ratio
+		padding-top: 56.25% //пропорция
+		
+	.relation-video
+		width: 100%
+		height: 100%
+		position: absolute
+		top: 0
+		left: 50%
+		transform: translateX(-50%)
+		max-width: 100%
+		vertical-align: middle
+		background-color: #000
+		&.has-media-controls-hidden::-webkit-media-controls
+			display: none
+
+.videoPoster 
+	position: absolute
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	background-repeat: no-repeat
+	background-size: cover
+	border: none
+	text-indent: -999em
+	overflow: hidden
+	opacity: 1
+	transition: opacity 800ms, height 0s
+	transition-delay: 0s, 0s
+	&:hover 
+		cursor: pointer
+		&:before 
+			transform: translate(-50%, -50%) scale(1.05)
+
+	&:before 
+		content: ''
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+		border: 23px solid transparent
+		border-right: none
+		border-left: 40px solid $text-color-2
+		transition: transform .2s
+
+
+
+
+/* ------------------------------------- 
+	footer
+ ------------------------------------- */
+.footer
+	padding: 55px 0 80px
+	&__container
+		padding: 30px 100px 0
+	&__col
+		flex: 0 0 33.333333%
+		max-width: 33.333333%
+		display: flex
+		justify-content: center
+		align-items: center
+
+	&__link
+		display: inline-block
+		padding-bottom: 3px
+		font-size: 25px
+		font-weight: 700
+		line-height: 1.08
+		letter-spacing: 1px
+		color: $text-color-1
+		text-decoration: none
+		border-bottom: 3px solid $accent-color-1
+		transition: all .2s
+		&:hover
+			border-bottom-color: transparent
+			transition: all .2s
+
+
+
+
+
+
+/* ------------------------------------- 
+	popup
+ ------------------------------------- */
+.popup
+	max-width: 770px
+	margin: 0 auto
+	background-color: #fff
+	border-radius: 25px
+	&__container
+		position: relative
+		padding: 50px 15px
+	&__form
+		&-row
+			display: flex
+			justify-content: center
+			margin-bottom: 30px
+			&:last-child
+				margin-bottom: 0
+		&-input
+			flex: 0 0 340px
+			max-width: 340px
+			height: 50px
+			margin: 0 15px
+			padding: 17px 30px
+			border-radius: 10px
+			font: 12px $default-font
+			color: $text-color-1
+			border: 1px solid #d1d1d1
+			background-color: #fff
+			outline: none
+			transition: all .2s
+			&--w100
+				flex: 0 0 100%
+				max-width: 100%
+				margin: 0
+			&:focus
+				box-shadow: inset 0 0 5px rgba(#000, .15)
+				transition: all .2s
+			&::placeholder
+				font: 12px $default-font
+				font-weight: 500
+				color: rgba($text-color-1, .8)
+			&-wrap
+				display: flex
+				width: 100%
+				padding: 0 15px
+
+
+
+
+.mfp-close
+	width: 40px
+	height: 40px
+	line-height: 44px
+	position: absolute
+	right: -20px
+	top: -20px
+	text-decoration: none
+	text-align: center
+	padding: 0 0 0 1px
+	color: $text-color-2 !important
+	font: 700 20px/38px $default-font
+	background-color: $accent-color-1
+	border-radius: 50%
+	cursor: pointer
+	opacity: 1
+	transition: all.2s
+	&:hover
+		background-color: darken($accent-color-1, 10%)
+		transition: all.2s
+	&:active
+		top: -18px
+		transition: all.2s
+
+
+
+/* ------------------------------------- 
+	Media styles
+ ------------------------------------- */
+@import "media"
